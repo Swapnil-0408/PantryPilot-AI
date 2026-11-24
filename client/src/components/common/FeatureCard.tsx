@@ -1,30 +1,22 @@
+import { Link } from "react-router-dom";
+
 type FeatureCardProps = {
   emoji: string;
   title: string;
   description: string;
+  to: string;
 };
 
-function FeatureCard({
-  emoji,
-  title,
-  description,
-}: FeatureCardProps) {
+function FeatureCard({ emoji, title, description, to }: FeatureCardProps) {
   return (
-    <div className="bg-slate-800 rounded-2xl p-6 hover:bg-slate-700 transition cursor-pointer shadow-lg">
-
-      <div className="text-5xl mb-4">
-        {emoji}
-      </div>
-
-      <h2 className="text-2xl font-bold text-white">
-        {title}
-      </h2>
-
-      <p className="text-slate-400 mt-2">
-        {description}
-      </p>
-
-    </div>
+    <Link
+      to={to}
+      className="block rounded-2xl bg-slate-800 p-6 shadow-lg transition hover:-translate-y-1 hover:bg-slate-700"
+    >
+      <div className="text-4xl">{emoji}</div>
+      <h2 className="mt-4 text-2xl font-bold text-white">{title}</h2>
+      <p className="mt-3 text-slate-400">{description}</p>
+    </Link>
   );
 }
 
